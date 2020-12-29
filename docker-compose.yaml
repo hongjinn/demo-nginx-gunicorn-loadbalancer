@@ -40,6 +40,19 @@ services:
     image: img_django_gunicorn_3
     ports:
       - "8003:8003"
+  django_gunicorn_4:
+    container_name: container_django_gunicorn_4
+    volumes:
+      - static:/myproject/myapp/static
+      - db:/myproject/myapp/sqlite
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile4
+    image: img_django_gunicorn_4
+    ports:
+      - "8004:8004"
   nginx:
     container_name: container_nginx_lb
     build: ./nginx
