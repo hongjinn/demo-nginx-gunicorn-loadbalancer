@@ -5,7 +5,7 @@ Scenario: We have 4 Gunicorn servers for our Django app. We have one reverse pro
 * Gunicorn server on localhost:8001
 * Gunicorn server on localhost:8002
 * Gunicorn server on localhost:8003
-* Gunicorn server on localhost:8004 with slightly different landing page to further prove the point that Nginx is 
+* Gunicorn server on localhost:8004 with slightly different landing page to further prove the point that Nginx is load balancing
 
 Custom access log with ```$upstream_addr``` to show Nginx is acting as a load balancer.
 
