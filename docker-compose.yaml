@@ -1,8 +1,8 @@
 version: '3.7'
 
 services:
-  django_gunicorn:
-    container_name: container_django_gunicorn
+  django_gunicorn_1:
+    container_name: container_django_gunicorn_1
     volumes:
       - static:/myproject/myapp/static
       - db:/myproject/myapp/sqlite
@@ -10,22 +10,48 @@ services:
       - .env
     build:
       context: .
-    image: img_django_gunicorn
+      dockerfile: Dockerfile1
+    image: img_django_gunicorn_1
     ports:
-      - "8000:8000"
+      - "8001:8001"
+  django_gunicorn_2:
+    container_name: container_django_gunicorn_2
+    volumes:
+      - static:/myproject/myapp/static
+      - db:/myproject/myapp/sqlite
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    image: img_django_gunicorn_2
+    ports:
+      - "8002:8002"
+  django_gunicorn_3:
+    container_name: container_django_gunicorn_3
+    volumes:
+      - static:/myproject/myapp/static
+      - db:/myproject/myapp/sqlite
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile3
+    image: img_django_gunicorn_3
+    ports:
+      - "8003:8003"
   nginx:
-    container_name: container_nginx
+    container_name: container_nginx_lb
     build: ./nginx
-    image: img_nginx
+    image: img_nginx_lb
     volumes:
       - static:/static
-      - certs:/etc/letsencrypt/live
     ports:
-      - "80:80"
-      - "443:443"
+      - "9000:9000"
     depends_on:
-      - django_gunicorn
+      - django_gunicorn_1
+      - django_gunicorn_2
+      - django_gunicorn_3
 volumes:
   static:
   db:
-  certs:
