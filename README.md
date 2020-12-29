@@ -7,9 +7,9 @@ Scenario: We have 4 Gunicorn servers for our Django app. We have one reverse pro
 * Gunicorn server on localhost:8003
 * Gunicorn server on localhost:8004 with slightly different landing page to further prove the point that Nginx is 
 
-Custom access log with ```$upstream_Addr``` to show Nginx is acting as a load balancer.
+Custom access log with ```$upstream_addr``` to show Nginx is acting as a load balancer.
 
-## Doing the test
+## Running the test to prove Nginx is load balancing Gunicorn servers
 
 ```
 git clone git@github.com:hongjinn/nginx-gunicorn-load-balancer.git
@@ -22,4 +22,4 @@ docker logs -f container_nginx_lb
 # Success!
 ```
 
-Load balancing can be round robin, least-connected, or ip_hash which is specified in nginx/default.conf
+Load balancing can be round robin, least-connected, or ip_hash which is specified in ```nginx/default.conf```
