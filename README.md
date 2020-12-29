@@ -1,4 +1,4 @@
-## Example of using Nginx to load balance for Gunicorn servers
+## Example of using Nginx to load balance multiple Gunicorn servers
 
 Scenario: We have 4 Gunicorn servers for our Django app. We have one reverse proxy Nginx server which channels requests to our Gunicorn servers.
 * Nginx on localhost:9000
