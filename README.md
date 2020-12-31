@@ -22,4 +22,7 @@ docker logs -f container_nginx_lb
 # Success!
 ```
 
-Load balancing can be round robin, least-connected, or ip_hash which is specified in ```nginx/default.conf```
+Load balancing options specified in ```nginx/default.conf```
+* Round robin
+* Least-connected
+* ip_hash
