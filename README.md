@@ -12,7 +12,7 @@ Custom access log with ```$upstream_addr``` to show Nginx is acting as a load ba
 ## Running the test to prove Nginx is load balancing Gunicorn servers
 
 ```
-git clone git@github.com:hongjinn/nginx-gunicorn-load-balancer.git
+git clone git@github.com:hongjinn/demo-nginx-gunicorn-loadbalancer.git
 docker-compose up --build -d
 docker logs -f container_nginx_lb
 # Open your browser and go to http://localhost:9000/
